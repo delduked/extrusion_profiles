@@ -1,14 +1,12 @@
 package main
 
 import (
-	"ui/controllers"
-	"ui/middleware"
-	"ui/models"
+	"extrusion_profiles/middleware"
+	"extrusion_profiles/models"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/template/html"
-	"github.com/gofiber/websocket/v2"
 )
 
 func main() {
@@ -25,18 +23,17 @@ func main() {
 	app.Use(middleware.Log)
 
 	app.Get("/error/:error", models.ErrorPage)
-	app.Use("/ws", middleware.SocketUpgrade)
-	app.Get("/ws/:id", websocket.New(controllers.Ws))
-	go controllers.ListenToChannel()
 
-	app.Get("/Login", models.Login)
-	app.Get("/SignUp", models.Signup) // change to new sign up page
-
-	app.Use("/u", middleware.ValidateToken)
-	app.Use("/u/:user", middleware.VerifyUser)
-
-	// final URL /u/nate.delduca@gmail.com/home
-	app.Get("/u/:user/home", models.Home)
+	app.Get("/", models.Home)
+	app.Get("/about-us", models.AboutUs)
+	app.Get("/contact-us", models.ContactUs)
+	app.Get("/capabilities", models.Capabilities)
+	app.Get("/design-engineering-expertise", models.DesignEngineeringExpertise)
+	app.Get("/in-house-tooling", models.InHouseTooling)
+	app.Get("/profile-samples", models.ProfileSamples)
+	app.Get("/quality-assurance", models.QualityAssurance)
+	app.Get("/rebated-tooling-program", models.RebatedToolingProgram)
+	app.Get("/value-added-services", models.ValueAddedServices)
 
 	assets := app.Group("/assets", middleware.ValidateToken)
 	assets.Static("/", "./assets")
