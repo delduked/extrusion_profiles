@@ -35,11 +35,11 @@ func main() {
 	app.Get("/rebated-tooling-program", models.RebatedToolingProgram)
 	app.Get("/value-added-services", models.ValueAddedServices)
 
-	assets := app.Group("/assets", middleware.ValidateToken)
+	assets := app.Group("/assets")
 	assets.Static("/", "./assets")
 
 	// handle page not found errors
 	app.Use(models.ErrorRedirect)
 
-	app.Listen(":80")
+	app.Listen(":8082")
 }

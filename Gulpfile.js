@@ -393,6 +393,11 @@ gulp.task(tsProHome);
 function watchFiles() {
 
    //gulp.watch(['src/css/**/*.sass','src/pug/**/*.pug','src/ts/**/*.ts'], gulp.series([sassPro,pugPro,tsPro]));
+   gulp.watch('views/components/pug/*.pug',pugProHome);
+
+   gulp.watch('views/about-us/sass/**/*.sass',sassProAboutUs);
+   gulp.watch('views/about-us/pug/**/*.pug',pugProAboutUs);
+   gulp.watch('views/about-us/ts/**/*.ts',tsProAboutUs);
 
    gulp.watch('views/capabilities/sass/**/*.sass',sassProCapabilities);
    gulp.watch('views/capabilities/pug/**/*.pug',pugProCapabilities);
@@ -431,36 +436,47 @@ function watchFiles() {
    gulp.watch('views/value-added-services/ts/**/*.ts',tsProValueAddedServices);
    
    gulp.watch([
+      'assets/capabilities/capabilities.html',
       'assets/capabilities/style.css',
       'assets/capabilities/index.js',
 
+      'assets/design-engineering-expertise/design-engineering-expertise.html',
       'assets/design-engineering-expertise/style.css',
       'assets/design-engineering-expertise/index.js',
 
+      'assets/error/error.html',
       'assets/error/style.css',
       'assets/error/index.js',
 
+      'assets/home/home.html',
       'assets/home/style.css',
       'assets/home/index.js',
 
+      'assets/in-house-tooling/in-house-tooling.html',
       'assets/in-house-tooling/style.css',
       'assets/in-house-tooling/index.js',
 
+      'assets/profile-samples/profile-samples.html',
       'assets/profile-samples/style.css',
       'assets/profile-samples/index.js',
 
+      'assets/quality-assurance/quality-assurance.html',
       'assets/quality-assurance/style.css',
       'assets/quality-assurance/index.js',
 
+      'assets/rebated-tooling-program/rebated-tooling-program.html',
       'assets/rebated-tooling-program/style.css',
       'assets/rebated-tooling-program/index.js',
 
+      'assets/value-added-services/value-added-services.html',
       'assets/value-added-services/style.css',
       'assets/value-added-services/index.js',
 
+      'assets/about-us/about-us.html',
       'assets/about-us/style.css',
       'assets/about-us/index.js',
 
+      'assets/contact-us/contact-us.html',
       'assets/contact-us/style.css',
       'assets/contact-us/index.js',
 
