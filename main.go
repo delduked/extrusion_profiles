@@ -25,7 +25,6 @@ func main() {
 	app.Get("/error/:error", models.ErrorPage)
 
 	app.Get("/", models.Home)
-	app.Get("/about-us", models.AboutUs)
 	app.Get("/contact-us", models.ContactUs)
 	app.Get("/capabilities", models.Capabilities)
 	app.Get("/design-engineering-expertise", models.DesignEngineeringExpertise)
