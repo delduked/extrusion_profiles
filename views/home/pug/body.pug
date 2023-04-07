@@ -1,52 +1,4 @@
-.container
-  header.blog-header.py-3
-  .nav-scroller.py-1.mb-2
-    nav.nav.d-flex.justify-content-between
-      a.p-2.text-muted(href='#') Skylights
-      a.p-2.text-muted(href='#') Windows
-      a.p-2.text-muted(href='#') Greenhouses
-      a.p-2.text-muted(href='#') Frames
-      a.p-2.text-muted(href='#') Curtain Walls
-      a.p-2.text-muted(href='#') Glazing
-      a.p-2.text-muted(href='#') Frames
-      a.p-2.text-muted(href='#') Coping
-      a.p-2.text-muted(href='#') Ticket holders
-      a.p-2.text-muted(href='#') Office partitions
-      a.p-2.text-muted(href='#') Dock Bumpers
-      a.p-2.text-muted(href='#') Wire managers
-      a.p-2.text-muted(href='#') Seals & Gaskets
-      a.p-2.text-muted(href='#') Frames
-  .jumbotron.p-3.p-md-5.text-white.rounded.bg-dark
-    .col-md-6.px-0
-      h1.display-4.font-italic Extrusion Profiles Inc.
-      p.lead.my-3
-        | Quality Customer Plastic Extrusion 
-        <br> Meeting the needs of your business
-      p.lead.my-3
-        a.text-white.font-weight-bold Contact Us...
-  .row.mb-2
-    .col-md-6
-      .card.flex-md-row.mb-4.box-shadow.h-md-250
-        .card-body.d-flex.flex-column.align-items-start
-          strong.d-inline-block.mb-2.text-primary 
-          h3.mb-0
-            a.text-dark(href='#') Architectural & Building
-          .mb-1.text-muted 
-          p.card-text.mb-auto
-            |
-          a(href='#') 
-        img.card-img-right.flex-auto.d-none.d-md-block(data-src='holder.js/200x250?theme=thumb' alt='Thumbnail [200x250]' style='width: 200px; height: 250px;' src="/assets/home/pg1_pic4_front.jpg" data-holder-rendered='true')
-    .col-md-6
-      .card.flex-md-row.mb-4.box-shadow.h-md-250
-        .card-body.d-flex.flex-column.align-items-start
-          strong.d-inline-block.mb-2.text-success 
-          h3.mb-0
-            a.text-dark(href='#') Swimming Pool & Spa Industry
-          .mb-1.text-muted 
-          p.card-text.mb-auto
-            | 
-          a(href='#') 
-        img.card-img-right.flex-auto.d-none.d-md-block(data-src='holder.js/200x250?theme=thumb' alt='Thumbnail [200x250]' style='width: 200px; height: 250px;' src="/assets/home/pg1_pic2_front.jpg" data-holder-rendered='true')
+include ../../components/pug/top
 main.container(role='main')
   .row
     .col-md-8.blog-main
@@ -63,24 +15,8 @@ main.container(role='main')
           | Extrusion Profiles Inc. employs on a regular basis, a large variety of plastic materials ranging from PVC to Polypropylene to custom compounds. Ongoing demand for more environmentally friendly compounds have resulted in material substitutions for LEEDS applications and similar requirements. Extrusion Profiles Inc. offers design assistance and compound suggestions for projects that require more ECO friendly materials.
     // /.blog-main
     aside.col-md-4.blog-sidebar
-      .p-3
-        h4.font-italic Service Offerings
-        ol.list-unstyled.mb-0
-          li
-            a(href='#') Capabilties
-          li
-            a(href='#') In House Tooling
-          li
-            a(href='#') Quality Assurance
-          li
-            a(href='#') Value Added Services
-          li
-            a(href='#') Rebated Tooling Program
-          li
-            a(href='#') Design Enginnering Expertise
-          li
-            a(href='#') Profile Samples
-
+      include ../../components/pug/links
+include ../../components/pug/footer
 //
   Bootstrap core JavaScript
   ==================================================

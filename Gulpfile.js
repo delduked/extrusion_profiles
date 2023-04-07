@@ -222,65 +222,65 @@ function tsProValueAddedServices(){
 // value-added-services
 
 // rebated-tooling-program
-function pugProRebatedToolingProgram() {
-   return (
-      gulp.src('views/rebated-tooling-program/pug/rebated-tooling-program.pug')
-      // Specifies which file will be processed into html
-      .pipe(pug({
-          pretty: true
-      }))
-      // Compiles the pug file into HTML
-      .pipe(gulp.dest('views'))
-      // Specifies where the processed HTML file will reside
-      .pipe(browsersync.reload({stream: true}))
-   );
-};
-function sassProRebatedToolingProgram() {
-   return (
-      gulp.src('views/rebated-tooling-program/sass/style.sass')
-      .pipe(sass()) //converts sass to css
-      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9','ff 17', 'opera 12.1', 'ios 6', 'android 4'))
-      .pipe(gulp.dest('assets/error'))
-      .pipe(browsersync.reload({stream: true}))
-   );
-};
-function tsProRebatedToolingProgram(){
-   var tsResult = gulp.src('views/rebated-tooling-program/ts/**/*.ts') // or tsProject.src()
-   .pipe(tsProject());
+// function pugProRebatedToolingProgram() {
+//    return (
+//       gulp.src('views/rebated-tooling-program/pug/rebated-tooling-program.pug')
+//       // Specifies which file will be processed into html
+//       .pipe(pug({
+//           pretty: true
+//       }))
+//       // Compiles the pug file into HTML
+//       .pipe(gulp.dest('views'))
+//       // Specifies where the processed HTML file will reside
+//       .pipe(browsersync.reload({stream: true}))
+//    );
+// };
+// function sassProRebatedToolingProgram() {
+//    return (
+//       gulp.src('views/rebated-tooling-program/sass/style.sass')
+//       .pipe(sass()) //converts sass to css
+//       .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9','ff 17', 'opera 12.1', 'ios 6', 'android 4'))
+//       .pipe(gulp.dest('assets/error'))
+//       .pipe(browsersync.reload({stream: true}))
+//    );
+// };
+// function tsProRebatedToolingProgram(){
+//    var tsResult = gulp.src('views/rebated-tooling-program/ts/**/*.ts') // or tsProject.src()
+//    .pipe(tsProject());
 
-   return tsResult.js.pipe(gulp.dest('assets/rebated-tooling-program'));
-}
+//    return tsResult.js.pipe(gulp.dest('assets/rebated-tooling-program'));
+// }
 // rebated-tooling-program
 
 // quality-assurance
-function pugProQualityAssurance() {
-   return (
-      gulp.src('views/quality-assurance/pug/quality-assurance.pug')
-      // Specifies which file will be processed into html
-      .pipe(pug({
-          pretty: true
-      }))
-      // Compiles the pug file into HTML
-      .pipe(gulp.dest('views'))
-      // Specifies where the processed HTML file will reside
-      .pipe(browsersync.reload({stream: true}))
-   );
-};
-function sassProQualityAssurance() {
-   return (
-      gulp.src('views/quality-assurance/sass/style.sass')
-      .pipe(sass()) //converts sass to css
-      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9','ff 17', 'opera 12.1', 'ios 6', 'android 4'))
-      .pipe(gulp.dest('assets/quality-assurance'))
-      .pipe(browsersync.reload({stream: true}))
-   );
-};
-function tsProQualityAssurance(){
-   var tsResult = gulp.src('views/quality-assurance/ts/**/*.ts') // or tsProject.src()
-   .pipe(tsProject());
+// function pugProQualityAssurance() {
+//    return (
+//       gulp.src('views/quality-assurance/pug/quality-assurance.pug')
+//       // Specifies which file will be processed into html
+//       .pipe(pug({
+//           pretty: true
+//       }))
+//       // Compiles the pug file into HTML
+//       .pipe(gulp.dest('views'))
+//       // Specifies where the processed HTML file will reside
+//       .pipe(browsersync.reload({stream: true}))
+//    );
+// };
+// function sassProQualityAssurance() {
+//    return (
+//       gulp.src('views/quality-assurance/sass/style.sass')
+//       .pipe(sass()) //converts sass to css
+//       .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9','ff 17', 'opera 12.1', 'ios 6', 'android 4'))
+//       .pipe(gulp.dest('assets/quality-assurance'))
+//       .pipe(browsersync.reload({stream: true}))
+//    );
+// };
+// function tsProQualityAssurance(){
+//    var tsResult = gulp.src('views/quality-assurance/ts/**/*.ts') // or tsProject.src()
+//    .pipe(tsProject());
 
-   return tsResult.js.pipe(gulp.dest('assets/quality-assurance'));
-}
+//    return tsResult.js.pipe(gulp.dest('assets/quality-assurance'));
+// }
 // quality-assurance
 
 // profile-samples
@@ -348,34 +348,34 @@ function tsProInHouseTooling(){
 
 
 // design-engineering-expertise
-function pugProDesignEngineeringExpertise() {
-   return (
-      gulp.src('views/design-engineering-expertise/pug/design-engineering-expertise.pug')
-      // Specifies which file will be processed into html
-      .pipe(pug({
-          pretty: true
-      }))
-      // Compiles the pug file into HTML
-      .pipe(gulp.dest('views'))
-      // Specifies where the processed HTML file will reside
-      .pipe(browsersync.reload({stream: true}))
-   );
-};
-function sassProDesignEngineeringExpertise() {
-   return (
-      gulp.src('views/design-engineering-expertise/sass/style.sass')
-      .pipe(sass()) //converts sass to css
-      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9','ff 17', 'opera 12.1', 'ios 6', 'android 4'))
-      .pipe(gulp.dest('assets/design-engineering-expertise'))
-      .pipe(browsersync.reload({stream: true}))
-   );
-};
-function tsProDesignEngineeringExpertise(){
-   var tsResult = gulp.src('views/design-engineering-expertise/ts/**/*.ts') // or tsProject.src()
-   .pipe(tsProject());
+// function pugProDesignEngineeringExpertise() {
+//    return (
+//       gulp.src('views/design-engineering-expertise/pug/design-engineering-expertise.pug')
+//       // Specifies which file will be processed into html
+//       .pipe(pug({
+//           pretty: true
+//       }))
+//       // Compiles the pug file into HTML
+//       .pipe(gulp.dest('views'))
+//       // Specifies where the processed HTML file will reside
+//       .pipe(browsersync.reload({stream: true}))
+//    );
+// };
+// function sassProDesignEngineeringExpertise() {
+//    return (
+//       gulp.src('views/design-engineering-expertise/sass/style.sass')
+//       .pipe(sass()) //converts sass to css
+//       .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9','ff 17', 'opera 12.1', 'ios 6', 'android 4'))
+//       .pipe(gulp.dest('assets/design-engineering-expertise'))
+//       .pipe(browsersync.reload({stream: true}))
+//    );
+// };
+// function tsProDesignEngineeringExpertise(){
+//    var tsResult = gulp.src('views/design-engineering-expertise/ts/**/*.ts') // or tsProject.src()
+//    .pipe(tsProject());
 
-   return tsResult.js.pipe(gulp.dest('assets/design-engineering-expertise'));
-}
+//    return tsResult.js.pipe(gulp.dest('assets/design-engineering-expertise'));
+// }
 // design-engineering-expertise
 
 
@@ -393,7 +393,7 @@ gulp.task(tsProHome);
 function watchFiles() {
 
    //gulp.watch(['src/css/**/*.sass','src/pug/**/*.pug','src/ts/**/*.ts'], gulp.series([sassPro,pugPro,tsPro]));
-   gulp.watch('views/components/pug/*.pug',pugProHome);
+   gulp.watch('views/components/pug/**/*.pug',gulp.series(pugProAboutUs,pugProCapabilities,pugProHome,pugProInHouseTooling,pugProValueAddedServices));
 
    gulp.watch('views/about-us/sass/**/*.sass',sassProAboutUs);
    gulp.watch('views/about-us/pug/**/*.pug',pugProAboutUs);
@@ -403,9 +403,9 @@ function watchFiles() {
    gulp.watch('views/capabilities/pug/**/*.pug',pugProCapabilities);
    gulp.watch('views/capabilities/ts/**/*.ts',tsProCapabilities);
 
-   gulp.watch('views/design-engineering-expertise/sass/**/*.sass',sassProDesignEngineeringExpertise);
-   gulp.watch('views/design-engineering-expertise/pug/**/*.pug',pugProDesignEngineeringExpertise);
-   gulp.watch('views/design-engineering-expertise/ts/**/*.ts',tsProDesignEngineeringExpertise);
+   // gulp.watch('views/design-engineering-expertise/sass/**/*.sass',sassProDesignEngineeringExpertise);
+   // gulp.watch('views/design-engineering-expertise/pug/**/*.pug',pugProDesignEngineeringExpertise);
+   // gulp.watch('views/design-engineering-expertise/ts/**/*.ts',tsProDesignEngineeringExpertise);
 
    gulp.watch('views/error/sass/**/*.sass',sassProError);
    gulp.watch('views/error/pug/**/*.pug',pugProError);
@@ -423,13 +423,13 @@ function watchFiles() {
    gulp.watch('views/profile-samples/pug/**/*.pug',pugProProfileSamples);
    gulp.watch('views/profile-samples/ts/**/*.ts',tsProProfileSamples);
 
-   gulp.watch('views/quality-assurance/sass/**/*.sass',sassProQualityAssurance);
-   gulp.watch('views/quality-assurance/pug/**/*.pug',pugProQualityAssurance);
-   gulp.watch('views/quality-assurance/ts/**/*.ts',tsProQualityAssurance);
+   // gulp.watch('views/quality-assurance/sass/**/*.sass',sassProQualityAssurance);
+   // gulp.watch('views/quality-assurance/pug/**/*.pug',pugProQualityAssurance);
+   // gulp.watch('views/quality-assurance/ts/**/*.ts',tsProQualityAssurance);
    
-   gulp.watch('views/rebated-tooling-program/sass/**/*.sass',sassProRebatedToolingProgram);
-   gulp.watch('views/rebated-tooling-program/pug/**/*.pug',pugProRebatedToolingProgram);
-   gulp.watch('views/rebated-tooling-program/ts/**/*.ts',tsProRebatedToolingProgram);
+   // gulp.watch('views/rebated-tooling-program/sass/**/*.sass',sassProRebatedToolingProgram);
+   // gulp.watch('views/rebated-tooling-program/pug/**/*.pug',pugProRebatedToolingProgram);
+   // gulp.watch('views/rebated-tooling-program/ts/**/*.ts',tsProRebatedToolingProgram);
 
    gulp.watch('views/value-added-services/sass/**/*.sass',sassProValueAddedServices);
    gulp.watch('views/value-added-services/pug/**/*.pug',pugProValueAddedServices);
@@ -488,37 +488,37 @@ function watchFiles() {
 // define tasks to process
 const build = gulp.series(
    pugProCapabilities,
-   pugProDesignEngineeringExpertise,
+   //pugProDesignEngineeringExpertise,
    pugProError,
    pugProHome,
    pugProInHouseTooling,
    pugProProfileSamples,
-   pugProQualityAssurance,
-   pugProRebatedToolingProgram,
+   //pugProQualityAssurance,
+   //pugProRebatedToolingProgram,
    pugProValueAddedServices,
    pugProAboutUs,
    pugProContactUs,
 
    sassProCapabilities,
-   sassProDesignEngineeringExpertise,
+   //sassProDesignEngineeringExpertise,
    sassProError,
    sassProHome,
    sassProInHouseTooling,
    sassProProfileSamples,
-   sassProQualityAssurance,
-   sassProRebatedToolingProgram,
+   //sassProQualityAssurance,
+   //sassProRebatedToolingProgram,
    sassProValueAddedServices,
    sassProAboutUs,
    sassProContactUs,
 
    tsProCapabilities,
-   tsProDesignEngineeringExpertise,
+   //tsProDesignEngineeringExpertise,
    tsProError,
    tsProHome,
    tsProInHouseTooling,
    tsProProfileSamples,
-   tsProQualityAssurance,
-   tsProRebatedToolingProgram,
+   //tsProQualityAssurance,
+   //tsProRebatedToolingProgram,
    tsProValueAddedServices,
    tsProAboutUs,
    tsProContactUs,
