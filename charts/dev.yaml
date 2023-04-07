@@ -1,0 +1,6 @@
+# public dev setup
+ENVIRONMENT: "ep-dev"
+# helm
+NAMESPACE: "ep-dev"
+EP_FQDN: ep.nated.app
+TLS_SECRET: ep.nated.app

@@ -40,5 +40,5 @@ func main() {
 	// handle page not found errors
 	app.Use(models.ErrorRedirect)
 
-	app.Listen(":8082")
+	app.Listen(":80")
 }
