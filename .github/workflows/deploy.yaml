@@ -1,11 +1,11 @@
-name: deploy to bwdev namespace
+name: deploy_dev_env
 on:
   push:
     branches:
       - deploy/*
 
 jobs:
-  image:
+  build:
     runs-on: [self-hosted, ghost-pop]
     steps:
       - uses: actions/checkout@v3
@@ -23,6 +23,7 @@ jobs:
           docker push ghcr.io/delduked/extrusion_profiles/ui:v${{steps.package_version.outputs.VERSION}}
   deploy:
     runs-on: [self-hosted, ghost-pop]
+    needs: [image]
     steps:
       - uses: actions/checkout@v3
         shell: bash
@@ -47,4 +48,16 @@ jobs:
             VERSION: ${{ steps.get_version.outputs.VERSION }}
         env: 
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
-    
+  tag:
+    runs-on: [self-hosted, ghost-pop]
+    needs: [deploy,image]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Create Git tag after deployment
+        env:
+          GITHUB_TOKEN: ${{ secrets.ALL_ACCESS_PAT }}
+        run: |
+          NEW_TAG="deployed-$(date +%Y%m%d-%H%M%S)"
+          git tag $NEW_TAG
+          git push origin $NEW_TAG
