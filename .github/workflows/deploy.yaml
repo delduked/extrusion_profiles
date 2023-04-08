@@ -2,7 +2,7 @@ name: deploy_dev_env
 on:
   push:
     branches:
-      - deploy/*
+      - prod
 
 jobs:
   build:
