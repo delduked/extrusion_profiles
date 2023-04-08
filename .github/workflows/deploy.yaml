@@ -26,7 +26,6 @@ jobs:
     needs: [image]
     steps:
       - uses: actions/checkout@v3
-        shell: bash
       - name: Get version from package.json
         id: package_version
         run: |
