@@ -4,3 +4,4 @@ ENVIRONMENT: "ep-dev"
 NAMESPACE: "ep-dev"
 EP_FQDN: ep.nated.app
 TLS_SECRET: ep.nated.app
+VERSION: 1.3

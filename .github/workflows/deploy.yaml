@@ -39,12 +39,12 @@ jobs:
           release: 'develop'
           namespace: 'ep-dev'
           chart: 'charts'
-          value-files: >-
-            [
-              "charts/dev.yaml"
-            ]
           values: |
-            VERSION: ${{ steps.get_version.outputs.VERSION }}
+            ENVIRONMENT: "ep-dev"
+            NAMESPACE: "ep-dev"
+            EP_FQDN: ep.nated.app
+            TLS_SECRET: ep.nated.app
+            VERSION: ${{steps.package_version.outputs.VERSION}}
         env: 
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
   tag:
