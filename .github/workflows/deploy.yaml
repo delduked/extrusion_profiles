@@ -23,10 +23,9 @@ jobs:
           docker push ghcr.io/delduked/extrusion_profiles/ui:v${{steps.package_version.outputs.VERSION}}
   deploy:
     runs-on: [self-hosted, ghost-pop]
-    needs: [image]
+    needs: [build]
     steps:
       - uses: actions/checkout@v3
-        shell: bash
       - name: Get version from package.json
         id: package_version
         run: |
@@ -40,17 +39,17 @@ jobs:
           release: 'develop'
           namespace: 'ep-dev'
           chart: 'charts'
-          value-files: >-
-            [
-              "charts/dev.yaml"
-            ]
           values: |
-            VERSION: ${{ steps.get_version.outputs.VERSION }}
+            ENVIRONMENT: "ep-dev"
+            NAMESPACE: "ep-dev"
+            EP_FQDN: ep.nated.app
+            TLS_SECRET: ep.nated.app
+            VERSION: ${{steps.package_version.outputs.VERSION}}
         env: 
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
   tag:
     runs-on: [self-hosted, ghost-pop]
-    needs: [deploy,image]
+    needs: [deploy,build]
     steps:
       - uses: actions/checkout@v3
       
