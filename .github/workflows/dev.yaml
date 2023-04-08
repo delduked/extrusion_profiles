@@ -1,0 +1,62 @@
+name: deploy_dev_env
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: [self-hosted, ghost-pop]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get version from package.json
+        id: package_version
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "Package version: $VERSION"
+          echo "::set-output name=version::$VERSION"
+      - name: Build Go UI image
+        run : |
+          echo "building extrusion_profiles/ui image"
+          export CR_PAT=${{ secrets.ALL_ACCESS_PAT }} ; echo $CR_PAT | docker login ghcr.io -u delduked --password-stdin
+          docker build -t ghcr.io/delduked/extrusion_profiles/ui:v${{steps.package_version.outputs.VERSION}} ./ -f ./ui.dockerfile
+          docker push ghcr.io/delduked/extrusion_profiles/ui:v${{steps.package_version.outputs.VERSION}}
+  deploy:
+    runs-on: [self-hosted, ghost-pop]
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get version from package.json
+        id: package_version
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "Package version: $VERSION"
+          echo "::set-output name=version::$VERSION"
+      - name: Helm Deploy
+        uses: vimeda/helm@v1.6.8
+        with:
+          token: ${{ secrets.ALL_ACCESS_PAT }}
+          release: 'develop'
+          namespace: 'ep-dev'
+          chart: 'charts'
+          values: |
+            ENVIRONMENT: "ep-dev"
+            NAMESPACE: "ep-dev"
+            EP_FQDN: ep.nated.app
+            TLS_SECRET: ep.nated.app
+            VERSION: ${{steps.package_version.outputs.VERSION}}
+        env: 
+          KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+  tag:
+    runs-on: [self-hosted, ghost-pop]
+    needs: [deploy,build]
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Create Git tag after deployment
+        env:
+          GITHUB_TOKEN: ${{ secrets.ALL_ACCESS_PAT }}
+        run: |
+          NEW_TAG="deployed-$(date +%Y%m%d-%H%M%S)"
+          git tag $NEW_TAG
+          git push origin $NEW_TAG
