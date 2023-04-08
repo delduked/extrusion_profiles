@@ -23,7 +23,7 @@ jobs:
           docker push ghcr.io/delduked/extrusion_profiles/ui:v${{steps.package_version.outputs.VERSION}}
   deploy:
     runs-on: [self-hosted, ghost-pop]
-    needs: [image]
+    needs: [build]
     steps:
       - uses: actions/checkout@v3
       - name: Get version from package.json
@@ -49,7 +49,7 @@ jobs:
           KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
   tag:
     runs-on: [self-hosted, ghost-pop]
-    needs: [deploy,image]
+    needs: [deploy,build]
     steps:
       - uses: actions/checkout@v3
       
